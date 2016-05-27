@@ -37,7 +37,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return 'tbl_user';
+        return '{{%user}}';
     }
 
     /**

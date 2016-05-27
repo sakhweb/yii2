@@ -6,4 +6,5 @@ return [
     'username' => '046400025_585',
     'password' => '585585',
     'charset' => 'utf8',
+	'tablePrefix' => 'abc_',
 ];
