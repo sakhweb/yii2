@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
  * @property string $email
  * @property integer $role_id
  * @property integer $status
- * @property TblRole $role
+ * @property Role $role
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -64,7 +64,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => array_keys(self::getStatusesArray())],
 
             [['phone'], 'string', 'min' => 10, 'max' => 12],
-            [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => TblRole::className(), 'targetAttribute' => ['role_id' => 'id']],
+            [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::className(), 'targetAttribute' => ['role_id' => 'id']],
         ];
     }
 
@@ -90,7 +90,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getRole()
     {
-        return $this->hasOne(TblRole::className(), ['id' => 'role_id']);
+        return $this->hasOne(Role::className(), ['id' => 'role_id']);
     }
     public function getStatusName($model)
     {
